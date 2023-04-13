@@ -67,6 +67,7 @@ function readPrescriptions() {
 
 }
 
+// Takes in a given prescription object and adds it to the DOM
 function addPrescriptionToDOM(prescription) {
 
 	const content = document.createElement('div');
@@ -96,3 +97,5 @@ const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
 
 openDb();
+// must run at least once to show previously added prescriptions upon refresh
+readPrescriptions();
