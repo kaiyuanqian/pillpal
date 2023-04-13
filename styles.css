@@ -4,11 +4,20 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #fff4ee;
+    padding: 0px;
+    margin: 0px;
 }
 
 .logo {
-    max-width: 512px;
+    max-width: 400px;
     margin: 32px;
+}
+
+.header {
+    background-color: #61876e;
+    width: 100%;
+    height: 32px;
+    margin: 0px;
 }
 
 .basic {
