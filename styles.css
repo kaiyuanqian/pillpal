@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: blanchedalmond;
+    background-color: #ffffff;
 }
 
 .basic {
@@ -11,7 +11,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0px;
-    
+    border: solid #609966;
+    border-radius: 8px;
+    border-width: 2px;
+    background-color: #edf1d6;
+    padding: 8px;
 }
 
 label {
@@ -25,6 +29,10 @@ input {
     margin-bottom: 8px;
     padding: 0px;
     width: 256px;
+    border: solid #c7e8ca;
+    border-radius: 4px;
+    border-width: 2px;
+    background-color: #f7f1e5;
 }
 
 .date {
@@ -42,4 +50,12 @@ input {
 
 .timeToTake input {
     width: 96px;
+}
+
+button {
+    background-color: #f7f1e5;
+    border: solid #609966;
+    border-radius: 4px;
+    border-width: 1px;
+    font-family: 'Varela Round';
 }
