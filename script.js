@@ -34,7 +34,7 @@ function addMedicine(medObject) {
 		objectStore.add(medObject);
 	  };
 	  req.onerror = function (evt) {
-		console.log("error adding");
+		console.error("DbAdding:", evt.target.errorCode);
 	  };
 }
 
