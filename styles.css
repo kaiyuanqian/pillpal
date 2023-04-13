@@ -52,6 +52,10 @@ input {
     width: 96px;
 }
 
+.timeToTake button {
+    border-radius: 50%;
+}
+
 button {
     background-color: #f7f1e5;
     border: solid #609966;
