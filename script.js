@@ -93,9 +93,15 @@ function handleSubmit(event) {
 
 	readPrescriptions();
 }
+
+function updateClock() {
+	document.getElementById('time').innerHTML = Date();
+}
+
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
 
 openDb();
 // must run at least once to show previously added prescriptions upon refresh
 readPrescriptions();
+setInterval(updateClock, 1000);
