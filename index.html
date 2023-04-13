@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>PillPal</title>
 </head>
 <body>
@@ -13,8 +13,17 @@
     <h2>test</h2>
     
     <form>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
+        <label for="medName">Medicine Name:</label>
+        <input type="text"><br>
+        <label for="recName">Recipient Name:</label>
+        <input type="text"><br>
+        <label for="startDate">Start Date:</label>
+        <input type="date"><br>
+        <label for="duration">Duration (Days):</label>
+        <input type="number"><br>
+        <label for="timeToTake">Time to take each day:</label>
+        <input type="time"><br>
+        <button type="button">Add Time</button><br>
       
         <button type="submit">Submit</button>
       </form>
