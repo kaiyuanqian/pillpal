@@ -49,8 +49,8 @@ function readPrescriptions() {
 		console.log("db reading...");
 		var transaction = db.transaction(DB_STORE_NAME, "readonly");
 		var objectStore = transaction.objectStore(DB_STORE_NAME);
-		objectStore.getAll().onsuccess = function (evt) {
-			return evt.target.result;
+		objectStore.getAll().onsuccess = function (event) {
+			event.target.result.forEach(element => console.log(element));
 		}
 	  };
 	  req.onerror = function (evt) {
@@ -73,8 +73,7 @@ function handleSubmit(event) {
 	// adds the prescription to the database
 	addMedicine(value_with_uniqueid);
 
-	// array of all prescriptions
-	var prescriptionsArray = readPrescriptions();
+	readPrescriptions()
 }
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
