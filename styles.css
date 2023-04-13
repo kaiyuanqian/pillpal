@@ -68,12 +68,17 @@ input {
 
 .timeToTake button {
     border-radius: 50%;
+    background-color: #f7f1e5;
+    width: auto;
+    height: auto;
 }
 
 button {
-    background-color: #f7f1e5;
+    background-color: #82cd47;
     border: solid #609966;
     border-radius: 4px;
     border-width: 1px;
     font-family: 'Varela Round';
+    width: 64px;
+    height: 32px;
 }
