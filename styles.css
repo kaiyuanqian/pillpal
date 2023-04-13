@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+
+.basic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    
+}
+
+label {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Varela Round';
+}
+
+input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0px;
+    width: 256px;
+}
+
+.date {
+    display: flex;
+    margin: 0px;
+}
+
+.date label {
+    margin: 8px;
+}
+
+.date input {
+    width: 96px;
+}
+
+.timeToTake input {
+    width: 96px;
+}
