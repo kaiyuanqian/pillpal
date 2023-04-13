@@ -1,6 +1,6 @@
 const DB_NAME = 'medDB';
 const DB_VERSION = 1; // Use a long long for this value (don't use a float)
-const DB_STORE_NAME = 'medicines';
+const DB_STORE_NAME = 'patientsWithMedicines';
 
 var db;
 
@@ -19,7 +19,7 @@ function openDb() {
     req.onupgradeneeded = function (evt) {
       console.log("openDb.onupgradeneeded");
       var store = evt.currentTarget.result.createObjectStore(
-        DB_STORE_NAME, { keyPath: 'medName', autoIncrement: true });
+        DB_STORE_NAME, { keyPath: 'nameAndMed', autoIncrement: true });
     };
 }
 
@@ -39,12 +39,14 @@ function addMedicine(medObject) {
 }
 
 function handleSubmit(event) {
-	  // Get data from form into a JS object
-	  event.preventDefault();
-	  const data = new FormData(event.target);
-	  const value = Object.fromEntries(data.entries());
-	  console.log({ value });
-	  addMedicine(value);
+	// Get data from form into a JS object
+	event.preventDefault();
+	const data = new FormData(event.target);
+	const value = Object.fromEntries(data.entries());
+	const value_with_uniqueid = {nameAndMed: value["recName"]+value["medName"]};
+	Object.assign(value_with_uniqueid, value);
+	console.log({ value_with_uniqueid });
+	addMedicine(value_with_uniqueid);
 }
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
