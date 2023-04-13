@@ -40,6 +40,7 @@ function addMedicine(medObject) {
 	  };
 }
 
+
 function readPrescriptions() {
 	var req = indexedDB.open(DB_NAME, DB_VERSION);
 
@@ -49,14 +50,30 @@ function readPrescriptions() {
 		console.log("db reading...");
 		var transaction = db.transaction(DB_STORE_NAME, "readonly");
 		var objectStore = transaction.objectStore(DB_STORE_NAME);
+
+		// Delete all things with prescription class before adding a new ones
+		document.querySelectorAll('.prescription').forEach(e => e.remove());
+
 		objectStore.getAll().onsuccess = function (event) {
-			event.target.result.forEach(element => console.log(element));
+			event.target.result.forEach((element) => {
+				console.log(element);
+				addPrescriptionToDOM(element);
+			})
 		}
 	  };
 	  req.onerror = function (evt) {
 		console.error("DbReading:", evt.target.errorCode);
 	  };
 
+}
+
+function addPrescriptionToDOM(prescription) {
+
+	const content = document.createElement('div');
+	content.classList.add('prescription');
+	content.textContent = `${prescription['recName']} is taking ${prescription['medName']}`;
+
+	bodycontainer.appendChild(content);
 }
 
 function handleSubmit(event) {
@@ -73,7 +90,7 @@ function handleSubmit(event) {
 	// adds the prescription to the database
 	addMedicine(value_with_uniqueid);
 
-	readPrescriptions()
+	readPrescriptions();
 }
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
