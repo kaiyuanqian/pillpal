@@ -4,6 +4,8 @@ const DB_STORE_NAME = 'patientsWithMedicines';
 
 var db;
 
+const bodycontainer = document.querySelector('body');
+
 function openDb() {
     console.log("openDb ...");
     var req = indexedDB.open(DB_NAME, DB_VERSION);
@@ -38,15 +40,41 @@ function addMedicine(medObject) {
 	  };
 }
 
+function readPrescriptions() {
+	var req = indexedDB.open(DB_NAME, DB_VERSION);
+
+	req.onsuccess = function (evt) {
+		// Equal to: db = req.result;
+		db = this.result;
+		console.log("db reading...");
+		var transaction = db.transaction(DB_STORE_NAME, "readonly");
+		var objectStore = transaction.objectStore(DB_STORE_NAME);
+		objectStore.getAll().onsuccess = function (evt) {
+			return evt.target.result;
+		}
+	  };
+	  req.onerror = function (evt) {
+		console.error("DbReading:", evt.target.errorCode);
+	  };
+
+}
+
 function handleSubmit(event) {
 	// Get data from form into a JS object
 	event.preventDefault();
 	const data = new FormData(event.target);
 	const value = Object.fromEntries(data.entries());
+
+	// provides a unique identifer for each prescription
 	const value_with_uniqueid = {nameAndMed: value["recName"]+value["medName"]};
 	Object.assign(value_with_uniqueid, value);
 	console.log({ value_with_uniqueid });
+
+	// adds the prescription to the database
 	addMedicine(value_with_uniqueid);
+
+	// array of all prescriptions
+	var prescriptionsArray = readPrescriptions();
 }
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
