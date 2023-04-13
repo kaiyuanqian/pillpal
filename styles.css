@@ -6,6 +6,11 @@ body {
     background-color: #fff4ee;
 }
 
+.logo {
+    max-width: 512px;
+    margin: 32px;
+}
+
 .basic {
     display: flex;
     flex-direction: column;
