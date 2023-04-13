@@ -1,0 +1,7 @@
+1. Main page 
+- Logo
+- Box to enter new medicine details
+- Boxes containing time to next pill, sorted by closest time
+- Button to go to page 2
+
+2. Page containing list of all medicines
