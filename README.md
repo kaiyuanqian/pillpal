@@ -1,4 +1,4 @@
 # PillPal
 
-![PillPal Logo](resources/pillpal-logo.png);
+![PillPal Logo](resources/pillpal-logo.png)
 
