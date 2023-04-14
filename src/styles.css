@@ -71,14 +71,6 @@ input {
     width: 96px;
 }
 
-.timeToTake button {
-    border-radius: 50%;
-    background-color: #f7f1e5;
-    width: fit-content;
-    height: fit-content;
-    margin: 8px;
-    margin-bottom: auto;
-}
 
 .timeInputs {
     display: flex;

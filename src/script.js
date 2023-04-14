@@ -121,6 +121,9 @@ function handleSubmit(event) {
 
 	activePrescriptions = [];
 	readPrescriptions();
+
+	const inputField = document.getElementById('times');
+	inputField.value = '';
 }
 
 function updateClock() {
@@ -153,9 +156,6 @@ function prescriptionDateComparison(p1, p2) {
 	}
 }
 
-function changeColour() {
-	const div = document.querySelectorAll('.hourlyBox');
-}
 
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
