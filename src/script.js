@@ -156,9 +156,15 @@ function prescriptionDateComparison(p1, p2) {
 	}
 }
 
+function resetForm() {
+	var form = document.querySelector('form');
+	form.reset();
+}
+
 
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
+form.addEventListener('reset', resetForm);
 
 openDb();
 // must run at least once to show previously added prescriptions upon refresh
