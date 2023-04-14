@@ -83,7 +83,7 @@ function addPrescriptionToDOM(prescription) {
 		console.log(`new div for ${hourClassString}`);
 		const hourlyDiv = document.createElement('div');
 		hourlyDiv.setAttribute('id', hourClassString);
-		hourlyDiv.classList.add("prescription");
+		hourlyDiv.classList.add("hourlyBox");
 		bodycontainer.appendChild(hourlyDiv);
 	} 
 
@@ -125,6 +125,7 @@ function updateClock() {
 
 	// Delete all things with prescription class before adding a new ones
 	document.querySelectorAll('.prescription').forEach(e => e.remove());
+	document.querySelectorAll('.hourlyBox').forEach(e => e.remove());
 
 	activePrescriptions.sort(prescriptionDateComparison);
 	activePrescriptions.forEach(prescriptions => addPrescriptionToDOM(prescriptions));
