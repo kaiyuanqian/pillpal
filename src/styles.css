@@ -77,12 +77,13 @@ input {
     width: fit-content;
     height: fit-content;
     margin: 8px;
+    margin-bottom: auto;
 }
 
 .timeInputs {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 button {
