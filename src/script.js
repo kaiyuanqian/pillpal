@@ -57,7 +57,12 @@ function readPrescriptions() {
 		objectStore.getAll().onsuccess = function (event) {
 			event.target.result.forEach((element) => {
 				console.log(element);
-				addPrescriptionToDOM(element);
+				// only want to add a prescription to the dom if it is a valid date
+				const curDate = new Date();
+				if (new Date(element["startDate"]) <= curDate && new Date(element["endDate"]) >= curDate) {
+					console.log("prescription active");
+					addPrescriptionToDOM(element);
+				}
 			})
 		}
 	  };
@@ -95,7 +100,16 @@ function handleSubmit(event) {
 }
 
 function updateClock() {
-	document.getElementById('time').innerHTML = Date();
+	const date = new Date();
+
+	let day = date.getDate();
+	let month = date.getMonth() + 1;
+	let year = date.getFullYear();
+
+	// This arrangement can be altered based on how we want the date's format to appear.
+	let currentDate = `${day}-${month}-${year}`;
+	// console.log(currentDate); // "17-6-2022"
+	document.querySelector('#time').textContent = currentDate;
 }
 
 const form = document.querySelector('form');
