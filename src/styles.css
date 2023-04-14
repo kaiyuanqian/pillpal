@@ -86,6 +86,12 @@ button {
     font-family: 'Varela Round';
     width: 64px;
     height: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.buttons {
+    display: flex;
 }
 
 .hourlyBox {
