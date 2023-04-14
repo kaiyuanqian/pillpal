@@ -143,3 +143,16 @@ button {
     font-size: 24px;
     font-family: 'Varela Round';
 }
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    /* visibility: hidden; */
+    background-color: blue;
+}
+
+.overdue {
+    background-color: red;
+}

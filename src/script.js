@@ -72,7 +72,7 @@ function readPrescriptions() {
 // Takes in a given prescription object and adds it to the DOM
 function addPrescriptionToDOM(prescription) {
 
-	const hourClassString = `hour${prescription['times'].slice(0, 2)}`
+	const hourClassString = `${prescription['nameAndMedAndTimes']}`
 
 	const rightdiv = document.querySelector('#right');
 
@@ -118,9 +118,18 @@ function addPrescriptionToDOM(prescription) {
 	if (prescription['times'] < time) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
 		// document.getElementById(hourClassString).style.border = "solid #ff0000";
-
-		name.innerHTML = `${prescription['recName']} <em>OVERDUE</em>`;
+		if (prescription['given'] === false) {
+			document.getElementById(hourClassString).classList.add('overdue');
+		} else {
+			document.getElementById(hourClassString).classList.add("notoverdue");
+		}
 	}
+
+	// allows boxes to listen for a click 
+	const hourlyBoxes = document.querySelectorAll('.hourlyBox');
+	hourlyBoxes.forEach(hourlybox => {
+		hourlybox.addEventListener('click', updateMedAsGiven);
+	})
 
 }
 
@@ -134,10 +143,15 @@ function handleSubmit(event) {
 	// provides a unique identifer for each prescription
 	const value_with_uniqueid = {nameAndMedAndTimes: value["recName"]+value["medName"]+value["times"]};
 	Object.assign(value_with_uniqueid, value);
-	console.log({ value_with_uniqueid });
+
+	// all meds start of with not being given for the day
+	const finalObject = {given: false};
+	Object.assign(finalObject, value_with_uniqueid);
+
+	console.log({ finalObject });
 
 	// adds the prescription to the database
-	addMedicine(value_with_uniqueid);
+	addMedicine(finalObject);
 
 	activePrescriptions = [];
 	readPrescriptions();
@@ -181,6 +195,46 @@ function resetForm() {
 	form.reset();
 }
 
+function updateMedAsGiven(event) {
+	console.log(`${this.id} has been clicked`);
+	var req = indexedDB.open(DB_NAME, DB_VERSION);
+
+	const idofclicker = this.id;
+
+	req.onsuccess = function (evt) {
+		// Equal to: db = req.result;
+		db = this.result;
+		console.log("db updating...");
+		var transaction = db.transaction(DB_STORE_NAME, "readwrite");
+		var objectStore = transaction.objectStore(DB_STORE_NAME);
+
+		const request = objectStore.get(idofclicker);
+
+		request.onerror = (event) => {
+			console.log("id dont exist tryna read it");
+		};
+
+		request.onsuccess = (event) => {
+			console.log("success");
+			const data = event.target.result;
+			console.log(`OLD DATA= ${data.given}`);
+			// update value of data
+			data.given = !data.given;
+
+			// Put this updated object back into the database.
+			const requestUpdate = objectStore.put(data);
+			requestUpdate.onerror = (event) => {
+				console.log("update of info failed");
+			};
+			requestUpdate.onsuccess = (event) => {
+				console.log(`WAS ${!data.given} NOW ${data.given}`);
+			};
+		};
+	  };
+	  req.onerror = function (evt) {
+		console.error("DbReading:", evt.target.errorCode);
+	  };
+}
 
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
