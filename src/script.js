@@ -78,7 +78,22 @@ function addPrescriptionToDOM(prescription) {
 
 	const prescriptionDiv = document.createElement('div');
 	prescriptionDiv.classList.add('prescription');
-	prescriptionDiv.textContent = `${prescription['recName']} is taking ${prescription['medName']} at ${prescription['times']}`;
+	// prescriptionDiv.textContent = `${prescription['recName']} is taking ${prescription['medName']} at ${prescription['times']}`;
+
+	const name = document.createElement('p');
+	name.textContent = `${prescription['recName']}`;
+	name.style.fontWeight = 'bold';
+	name.style.fontSize = '25px';
+	name.style.padding = '0px';
+	name.style.margin = '0px';
+	name.style.textAlign = 'left';
+
+	const medicine = document.createElement('p');
+	medicine.textContent = `${prescription['medName']} at ${prescription['times']}`;
+
+
+	prescriptionDiv.appendChild(name);
+	prescriptionDiv.appendChild(medicine);
 
 	// first entry of a prescription with this integer hour
 	if (document.getElementById(hourClassString) == null) {
@@ -90,9 +105,9 @@ function addPrescriptionToDOM(prescription) {
 		rightdiv.appendChild(hourlyDiv);
 
 		// adds a checkbox to each hourly schedule box
-		const checkbox = document.createElement('INPUT');
-		checkbox.setAttribute("type", "checkbox");
-		hourlyDiv.appendChild(checkbox);
+		// const checkbox = document.createElement('INPUT');
+		// checkbox.setAttribute("type", "checkbox");
+		// hourlyDiv.appendChild(checkbox);
 	} 
 
 	document.getElementById(hourClassString).appendChild(prescriptionDiv);
