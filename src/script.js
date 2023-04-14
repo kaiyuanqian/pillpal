@@ -117,7 +117,8 @@ function addPrescriptionToDOM(prescription) {
 	if (prescription['times'] < time) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
 		// document.getElementById(hourClassString).style.border = "solid #ff0000";
-		
+
+		name.innerHTML = `${prescription['recName']} --- <em>OVERDUE</em>`;
 	}
 
 }
