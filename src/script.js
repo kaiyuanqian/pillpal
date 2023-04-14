@@ -111,7 +111,19 @@ function updateClock() {
 	// Delete all things with prescription class before adding a new ones
 	document.querySelectorAll('.prescription').forEach(e => e.remove());
 
+	activePrescriptions.sort(prescriptionDateComparison);
+	console.log(activePrescriptions);
 	activePrescriptions.forEach(prescriptions => addPrescriptionToDOM(prescriptions));
+}
+
+function prescriptionDateComparison(p1, p2) {
+	if (p1['times'] < p2['times']) {
+		return -1;
+	} else if (p1['times'] > p2['times']) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 const form = document.querySelector('form');
