@@ -88,7 +88,6 @@ function addPrescriptionToDOM(prescription) {
 	} 
 
 	document.getElementById(hourClassString).appendChild(prescriptionDiv);
-	document.getElementById(hourClassString).style.border = "thick solid #0000FF";
 
 }
 
