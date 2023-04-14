@@ -119,12 +119,9 @@ function addPrescriptionToDOM(prescription) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
 		// document.getElementById(hourClassString).style.border = "solid #ff0000";
 		if (prescription['given'] === false) {
-			document.getElementById(hourClassString).classList.add('overdue')
-			document.getElementById(hourClassString).classList.remove('notoverdue');
 		} else {
-			document.getElementById(hourClassString).classList.remove('overdue');
-			document.getElementById(hourClassString).classList.add('notoverdue');
 			document.getElementById(hourClassString).style.backgroundColor = '#609966';
+			document.getElementById(hourClassString).style.fontFamily = 'Varela Round';
 			document.getElementById(hourClassString).textContent = `${prescription['recName']} has taken ${prescription['medName']} for ${prescription['times']}`;
 		}
 	}
