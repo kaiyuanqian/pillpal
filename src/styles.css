@@ -98,5 +98,18 @@ button {
 
 .hourlyBox {
     border: solid #609966;
-    border-width: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+    background-color: #edf1d6;
+    padding: 8px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+}
+
+.prescription {
+    font-family: 'Varela Round';
+    margin: 4px;
 }
