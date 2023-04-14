@@ -124,6 +124,8 @@ function addPrescriptionToDOM(prescription) {
 		} else {
 			document.getElementById(hourClassString).classList.remove('overdue');
 			document.getElementById(hourClassString).classList.add('notoverdue');
+			document.getElementById(hourClassString).style.backgroundColor = '#609966';
+			document.getElementById(hourClassString).textContent = `${prescription['recName']} has taken ${prescription['medName']} for ${prescription['times']}`;
 		}
 	}
 
