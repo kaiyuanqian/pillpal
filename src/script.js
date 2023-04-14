@@ -51,9 +51,6 @@ function readPrescriptions() {
 		var transaction = db.transaction(DB_STORE_NAME, "readonly");
 		var objectStore = transaction.objectStore(DB_STORE_NAME);
 
-		// Delete all things with prescription class before adding a new ones
-		document.querySelectorAll('.prescription').forEach(e => e.remove());
-
 		objectStore.getAll().onsuccess = function (event) {
 			event.target.result.forEach((element) => {
 				console.log(element);
@@ -61,7 +58,7 @@ function readPrescriptions() {
 				const curDate = new Date();
 				if (new Date(element["startDate"]) <= curDate && new Date(element["endDate"]) >= curDate) {
 					console.log("prescription active");
-					addPrescriptionToDOM(element);
+					activePrescriptions.push(element);
 				}
 			})
 		}
@@ -110,6 +107,11 @@ function updateClock() {
 	let currentDate = `${day}-${month}-${year}`;
 	// console.log(currentDate); // "17-6-2022"
 	document.querySelector('#time').textContent = currentDate;
+
+	// Delete all things with prescription class before adding a new ones
+	document.querySelectorAll('.prescription').forEach(e => e.remove());
+
+	activePrescriptions.forEach(prescriptions => addPrescriptionToDOM(prescriptions));
 }
 
 const form = document.querySelector('form');
@@ -117,5 +119,6 @@ form.addEventListener('submit', handleSubmit);
 
 openDb();
 // must run at least once to show previously added prescriptions upon refresh
+var activePrescriptions = [];
 readPrescriptions();
 setInterval(updateClock, 1000);
