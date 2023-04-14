@@ -119,9 +119,11 @@ function addPrescriptionToDOM(prescription) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
 		// document.getElementById(hourClassString).style.border = "solid #ff0000";
 		if (prescription['given'] === false) {
-			document.getElementById(hourClassString).classList.add('overdue');
+			document.getElementById(hourClassString).classList.add('overdue')
+			document.getElementById(hourClassString).classList.remove('notoverdue');
 		} else {
-			document.getElementById(hourClassString).classList.add("notoverdue");
+			document.getElementById(hourClassString).classList.remove('overdue');
+			document.getElementById(hourClassString).classList.add('notoverdue');
 		}
 	}
 
@@ -234,6 +236,7 @@ function updateMedAsGiven(event) {
 	  req.onerror = function (evt) {
 		console.error("DbReading:", evt.target.errorCode);
 	  };
+	  window.location.reload();
 }
 
 const form = document.querySelector('form');
@@ -244,4 +247,4 @@ openDb();
 // must run at least once to show previously added prescriptions upon refresh
 var activePrescriptions = [];
 readPrescriptions();
-setInterval(updateClock, 1000);
+setInterval(updateClock, 500);

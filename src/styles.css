@@ -154,5 +154,11 @@ button {
 }
 
 .overdue {
-    background-color: red;
+    border: solid red;
+    border-width: 50px;
+}
+
+.notoverdue {
+    border: solid green;
+    border-width: 50px;
 }
