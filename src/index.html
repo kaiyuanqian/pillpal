@@ -6,41 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     
     <title>PillPal</title>
 </head>
 <body>
-    <div class="header">
-    </div>
+    <div class="header"></div>
     
-    <img class="logo" src="../resources/pillpal-logo.png" alt="ourLogo">
-    
-    <form class="basic">
-        <label for="medName">Medicine Name:</label>
-        <input type="text" id="medName" name="medName">
-        <label for="recName">Recipient Name:</label>
-        <input type="text" id="recName" name="recName">
-        <div class="date">
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate">
-            <label for="endDate">End date:</label>
-            <input type="date" id="endDate" name="endDate">
-        </div>
-        <label for="times">Time to take each day:</label>
-        <div class="timeToTake">
-            <div class="timeInputs">
-                <input type="time" id="times" name="times">
-            </div>
-            
-        </div>
-      
-        <div class="buttons">
-            <button type="submit">Submit</button>
-            <button type="reset">New</button>
-        </div>
-    </form>
 
-    <div id=time></div>
+    <div id="content">
+        <div id="left">
+            <img class="logo" src="../resources/pillpal-logo.png" alt="ourLogo">
+        
+            <form class="basic">
+                <label for="medName">Medicine Name:</label>
+                <input type="text" id="medName" name="medName">
+                <label for="recName">Recipient Name:</label>
+                <input type="text" id="recName" name="recName">
+                <div class="date">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    <label for="endDate">End date:</label>
+                    <input type="date" id="endDate" name="endDate">
+                </div>
+                <label for="times">Time to take each day:</label>
+                <div class="timeToTake">
+                    <div class="timeInputs">
+                        <input type="time" id="times" name="times">
+                    </div>
+                    
+                </div>
+            
+                <div class="buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">New</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="right">
+            <div id="time"></div>
+        </div>
+    </div>
+
 </body>
 </html>

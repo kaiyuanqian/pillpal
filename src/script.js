@@ -74,6 +74,8 @@ function addPrescriptionToDOM(prescription) {
 
 	const hourClassString = `hour${prescription['times'].slice(0, 2)}`
 
+	const rightdiv = document.querySelector('#right');
+
 	const prescriptionDiv = document.createElement('div');
 	prescriptionDiv.classList.add('prescription');
 	prescriptionDiv.textContent = `${prescription['recName']} is taking ${prescription['medName']} at ${prescription['times']}`;
@@ -84,7 +86,8 @@ function addPrescriptionToDOM(prescription) {
 		const hourlyDiv = document.createElement('div');
 		hourlyDiv.setAttribute('id', hourClassString);
 		hourlyDiv.classList.add("hourlyBox");
-		bodycontainer.appendChild(hourlyDiv);
+
+		rightdiv.appendChild(hourlyDiv);
 
 		// adds a checkbox to each hourly schedule box
 		const checkbox = document.createElement('INPUT');
@@ -98,7 +101,7 @@ function addPrescriptionToDOM(prescription) {
 	var time = today.getHours() + ':' + today.getMinutes();
 	if (prescription['times'] < time) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
-		document.getElementById(hourClassString).style.border = "solid #ff0000";
+		// document.getElementById(hourClassString).style.border = "solid #ff0000";
 		
 	}
 
