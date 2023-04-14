@@ -85,6 +85,11 @@ function addPrescriptionToDOM(prescription) {
 		hourlyDiv.setAttribute('id', hourClassString);
 		hourlyDiv.classList.add("hourlyBox");
 		bodycontainer.appendChild(hourlyDiv);
+
+		// adds a checkbox to each hourly schedule box
+		const checkbox = document.createElement('INPUT');
+		checkbox.setAttribute("type", "checkbox");
+		hourlyDiv.appendChild(checkbox);
 	} 
 
 	document.getElementById(hourClassString).appendChild(prescriptionDiv);
