@@ -94,6 +94,14 @@ function addPrescriptionToDOM(prescription) {
 
 	document.getElementById(hourClassString).appendChild(prescriptionDiv);
 
+	var today = new Date();
+	var time = today.getHours() + ':' + today.getMinutes();
+	if (prescription['times'] < time) {
+		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
+		document.getElementById(hourClassString).style.border = "solid #ff0000";
+		
+	}
+
 }
 
 
@@ -143,6 +151,10 @@ function prescriptionDateComparison(p1, p2) {
 	} else {
 		return 0;
 	}
+}
+
+function changeColour() {
+	const div = document.querySelectorAll('.hourlyBox');
 }
 
 const form = document.querySelector('form');
