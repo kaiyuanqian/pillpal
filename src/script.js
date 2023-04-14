@@ -21,7 +21,7 @@ function openDb() {
     req.onupgradeneeded = function (evt) {
       console.log("openDb.onupgradeneeded");
       var store = evt.currentTarget.result.createObjectStore(
-        DB_STORE_NAME, { keyPath: 'nameAndMed', autoIncrement: true });
+        DB_STORE_NAME, { keyPath: 'nameAndMed', autoIncrement: false });
     };
 }
 
@@ -72,12 +72,26 @@ function readPrescriptions() {
 // Takes in a given prescription object and adds it to the DOM
 function addPrescriptionToDOM(prescription) {
 
-	const content = document.createElement('div');
-	content.classList.add('prescription');
-	content.textContent = `${prescription['recName']} is taking ${prescription['medName']}`;
+	const hourClassString = `hour${prescription['times'].slice(0, 2)}`
 
-	bodycontainer.appendChild(content);
+	const prescriptionDiv = document.createElement('div');
+	prescriptionDiv.classList.add('prescription');
+	prescriptionDiv.textContent = `${prescription['recName']} is taking ${prescription['medName']} at ${prescription['times']}`;
+
+	// first entry of a prescription with this integer hour
+	if (document.getElementById(hourClassString) == null) {
+		console.log(`new div for ${hourClassString}`);
+		const hourlyDiv = document.createElement('div');
+		hourlyDiv.setAttribute('id', hourClassString);
+		hourlyDiv.classList.add("prescription");
+		bodycontainer.appendChild(hourlyDiv);
+	} 
+
+	document.getElementById(hourClassString).appendChild(prescriptionDiv);
+	document.getElementById(hourClassString).style.border = "thick solid #0000FF";
+
 }
+
 
 function handleSubmit(event) {
 	// Get data from form into a JS object
@@ -93,6 +107,7 @@ function handleSubmit(event) {
 	// adds the prescription to the database
 	addMedicine(value_with_uniqueid);
 
+	activePrescriptions = [];
 	readPrescriptions();
 }
 
@@ -112,7 +127,6 @@ function updateClock() {
 	document.querySelectorAll('.prescription').forEach(e => e.remove());
 
 	activePrescriptions.sort(prescriptionDateComparison);
-	console.log(activePrescriptions);
 	activePrescriptions.forEach(prescriptions => addPrescriptionToDOM(prescriptions));
 }
 
