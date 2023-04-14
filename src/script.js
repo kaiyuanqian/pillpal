@@ -90,6 +90,7 @@ function addPrescriptionToDOM(prescription) {
 
 	const medicine = document.createElement('p');
 	medicine.textContent = `${prescription['medName']} at ${prescription['times']}`;
+	medicine.style.textAlign = 'right';
 
 
 	prescriptionDiv.appendChild(name);
@@ -118,7 +119,7 @@ function addPrescriptionToDOM(prescription) {
 		document.getElementById(hourClassString).style.backgroundColor = "#ffbaba";
 		// document.getElementById(hourClassString).style.border = "solid #ff0000";
 
-		name.innerHTML = `${prescription['recName']} --- <em>OVERDUE</em>`;
+		name.innerHTML = `${prescription['recName']} <em>OVERDUE</em>`;
 	}
 
 }
