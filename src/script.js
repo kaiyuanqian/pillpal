@@ -21,7 +21,7 @@ function openDb() {
     req.onupgradeneeded = function (evt) {
       console.log("openDb.onupgradeneeded");
       var store = evt.currentTarget.result.createObjectStore(
-        DB_STORE_NAME, { keyPath: 'nameAndMed', autoIncrement: false });
+        DB_STORE_NAME, { keyPath: 'nameAndMedAndTimes', autoIncrement: false });
     };
 }
 
@@ -100,7 +100,7 @@ function handleSubmit(event) {
 	const value = Object.fromEntries(data.entries());
 
 	// provides a unique identifer for each prescription
-	const value_with_uniqueid = {nameAndMed: value["recName"]+value["medName"]};
+	const value_with_uniqueid = {nameAndMedAndTimes: value["recName"]+value["medName"]+value["times"]};
 	Object.assign(value_with_uniqueid, value);
 	console.log({ value_with_uniqueid });
 
