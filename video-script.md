@@ -36,7 +36,7 @@ _N types details into PC_
 
 N: Got it.
 
-P: The second patient is Kaiyuan Qian. He needs cefalexin 3 times a day at 8am, 4pm, and 12am.
+P: The second patient is Kaiyuan Qian. He needs cefalexin 3 times a day at 8am, 4pm, and 11pm.
    Make sure you are on time as we need to maintain the drug's bioavailability.
 
 N: Yep.
