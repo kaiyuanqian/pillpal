@@ -12,7 +12,7 @@ N: Yep.
 
 P: Have you got the doctor's notes?
 
-N: Yeah, but they're unintelligible.
+N: Yeah, but I can't read them.
 
 _N opens unintelligible notes on screen_
 
@@ -26,7 +26,7 @@ _N types details into PC_
 
 N: Got it.
 
-P: The second patient is Henry Fielding. He needs cefalexin 3 times a day at 8am, 4pm, and 12am.
+P: The second patient is Kaiyuan Qian. He needs cefalexin 3 times a day at 8am, 4pm, and 12am.
    Make sure you are on time as we need to maintain the drug's bioavailability.
 
 N: Yep.
@@ -65,3 +65,15 @@ N: Oh also, make sure you -
 _N and camera turn back to look at J. He is sleeping again._
 
 _End scene_
+
+## Scene 3
+Nurse = N Kaiyuan = K
+
+**Time is 4:40pm**
+
+_N is playing chess on his PC. He gets a notification on his phone. He looks._
+
+**Camera looks at notification**
+
+N: Oh shit!
+
