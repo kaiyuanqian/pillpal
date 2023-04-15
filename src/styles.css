@@ -129,6 +129,8 @@ button {
 }
 
 #left {
+    margin-top: 0px;
+    margin-bottom: auto;
     padding-top: 85px;
     display: flex;
     flex-direction: column;

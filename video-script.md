@@ -1,11 +1,12 @@
 ## Introduction
 PillPal is a web application designed to help nurses, age-care workers and other
-caretakers to keep track of when they need to administer medicine to their patients.
+caretakers keep track of when they need to administer medicine to their patients.
 We believe our concept could make a meaningful impact on the global healthcare industry
 as a whole. For instance, hospital nurses are subject to extreme work-loads and
 are often understaffed. We hope to alleviate some of their stress by remembering
 their drug duties for them, and sending a reminder in case they forget. Here is
-an example of how PillPal could work in a real-life scenario.
+an example of how PillPal could work in a real-life scenario with a pharmacologist,
+a nurse and two patients.
 
 ## Scene 1
 Nurse = N
