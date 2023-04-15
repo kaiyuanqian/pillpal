@@ -2,13 +2,27 @@
 const activePrescriptions = [
     { name: 'John', time: '8:00', medicine: 'Aspirin' },
     { name: 'Jane', time: '12:00', medicine: 'Ibuprofen' },
-    { name: 'Bob', time: '23:14', medicine: 'Tylenol' }
+    { name: 'Bob', time: '12:41', medicine: 'Tylenol' }
   ];
 
 //sets up Twilio chatbot
 const accountSid = 'AC077078c644b83c568c2994f606bebf5a';
 const authToken = 'c1b5204b304bf6e99ec77a2a92dadb16';
 const client = require('twilio')(accountSid, authToken);
+
+
+//updates dose_time to 40min ahead in 24 hour time of the form "h:mm"
+function update_deadline(dose_time) {
+    var [hours, minutes] = dose_time.split(":");
+    var dateObj = new Date();
+    dateObj.setHours(hours);
+    dateObj.setMinutes(minutes);
+    dateObj.setTime(dateObj.getTime() + 40 * 60 * 1000);
+    var updatedHours = dateObj.getHours();
+    var updatedMinutes = dateObj.getMinutes();
+    var deadline = `${updatedHours}:${updatedMinutes.toString().padStart(2, "0")}`;
+    return deadline;
+}
 
 //returns a string representing 24-hour time of the form: "h:mm"
 function gettime() {
@@ -26,14 +40,14 @@ function gettime() {
 function sendmessage() {
     // loop through the activePrescriptions array
     activePrescriptions.forEach(record => {
-        if (record.time == gettime()) {
+        if (update_deadline(record.time) == gettime()) {
 
             //prints details to console
             console.log(`Name: ${record.name}, Time: ${record.time}, Medicine: ${record.medicine}`);
 
             //sends message using Twilio
             client.messages.create({
-                body: `It is ${record.time} and ${record.name} needs to take their dose of ${record.medicine}!`,
+                body: `Reminder: ${record.name} was prescribed to take their dose of ${record.medicine}! at ${record_time}. Confirm on the PillPal website`,
                 from: '+15077085452',
                 to: '+61472909030'
             }).then(message => {
