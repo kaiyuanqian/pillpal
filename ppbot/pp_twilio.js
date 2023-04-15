@@ -9,6 +9,19 @@ const name = prompt('What is your name? ');
 const medicine = prompt('What is your medicine? ');
 const dose_time = prompt('When do you take it? ');
 
+//updates dose_time to 40min ahead in 24 hour time of the form "h:mm"
+function update_deadline(dose_time) {
+    var [hours, minutes] = dose_time.split(":");
+    var dateObj = new Date();
+    dateObj.setHours(hours);
+    dateObj.setMinutes(minutes);
+    dateObj.setTime(dateObj.getTime() + 40 * 60 * 1000);
+    var updatedHours = dateObj.getHours();
+    var updatedMinutes = dateObj.getMinutes();
+    var deadline = `${updatedHours}:${updatedMinutes.toString().padStart(2, "0")}`;
+    return deadline;
+}
+
 //returns a string representing 24-hour time of the form: "h:mm"
 function gettime() {
     var today = new Date();
@@ -23,9 +36,9 @@ function gettime() {
 
 //used to send the personalised message when the time to take the dose matches the current time
 function sendmessage() {
-    if (dose_time == gettime()) {
+    if (update_deadline(dose_time) == gettime()) {
         client.messages.create({
-            body: `It is ${gettime()}, and ${name} needs to take their dose of ${medicine}!`,
+            body: `Reminder: ${name} was prescribed to take their dose of ${medicine}! at ${dose_time}. Confirm on the PillPal website`,
             from: '+15077085452',
             to: '+61472909030'
         }).then(message => {
