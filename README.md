@@ -8,6 +8,10 @@ PillPal is a software designed to help nurses, age-care workers, and other carer
 
 As not all users are tech-savvy and many caretakers work in a fast-paced environment, we endeavoured to make the interface clean and intuitive. We employed strategic choices within our html, CSS, and Javascript to achieve our desired front-end. For the back-end, we used indexedDB and Javascript to store patient and drug data locally, protecting caretakers and their patients from network outages.
 
+Whilst other competitors such as the 'MedicineWise app' offer similar capbilities, PillPal distinguishes itself with its multi-patient support that allows multiple patients to be catered for on one simple and effective webapp, rather than catering for just one individual who must also take responsiblity for their medication management.
+
+As the SMS messaging feature failed to integrate into the webapp, this is a future task for PillPal's creators. When completed, it will allow the carer to input their number on the webapp and receive a reminder if any patient's medication hasn't been "checked off" on the webapp 40 minutes after the prescribed time.
+
 ## Henry
 
 My involvement in PillPal consisted primarily of creating the ‘backend’ functionality for the site.
@@ -30,3 +34,13 @@ I found it challenging to come up with a video idea that is both engaging and ef
 
 ---
 
+## Enrique
+
+My contribution to PillPal included designing the logo and colour themes for Pillpall, as well as creating the SMS messaging function. 
+
+To design the logo, I used LOGO.com as well as Adobe photoshop, utilising a green colour scheme to symbolise health and prosperity which reflects our track of 'Health and Society'. It proved difficult in designing the logo with photoshop as I had no prior experience, but nevertheless learnt valuable design editing skills. 
+
+For the SMS reminder function, I wrote the code using Javascript and node.js in conjuction with a Twilio web service API. Javascript and node.js were used to write code in a language that can be used by the webapp, and Twilio because it offered a free usage of a number and a corresponding chatBot. This was challenging due to the fact I had no experience with git/GitHub, Javascript, or using APIs. However, it proved to be a steep learning curve and was quickly familiar with these languages and tools. 
+Integrating this into the webapp in the final stages of the project was a problem. Due to the fact that to run Twilio on the webapp and not a node.js environment, we needed a server side implementation. Due to time constraints we could not achieve this, so PillPal is currently not capable of all its desired functionalities. 
+
+---
