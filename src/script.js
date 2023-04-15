@@ -124,6 +124,12 @@ function addPrescriptionToDOM(prescription) {
 			document.getElementById(hourClassString).style.fontFamily = 'Varela Round';
 			document.getElementById(hourClassString).textContent = `${prescription['recName']} has taken ${prescription['medName']} for ${prescription['times']}`;
 		}
+	} else {
+		if (prescription['given']) {
+			document.getElementById(hourClassString).style.backgroundColor = '#609966';
+			document.getElementById(hourClassString).style.fontFamily = 'Varela Round';
+			document.getElementById(hourClassString).textContent = `${prescription['recName']} has taken ${prescription['medName']} for ${prescription['times']}`;
+		}
 	}
 
 	// allows boxes to listen for a click 
