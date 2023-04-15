@@ -38,7 +38,7 @@ function gettime() {
 function sendmessage() {
     if (update_deadline(dose_time) == gettime()) {
         client.messages.create({
-            body: `Reminder: ${name} was prescribed to take their dose of ${medicine}! at ${dose_time}. Confirm on the PillPal website`,
+            body: `Reminder: ${name} was prescribed to take their dose of ${medicine} at ${dose_time}. Please address!`,
             from: '+15077085452',
             to: '+61472909030'
         }).then(message => {

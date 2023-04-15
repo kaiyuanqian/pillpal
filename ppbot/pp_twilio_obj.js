@@ -47,7 +47,7 @@ function sendmessage() {
 
             //sends message using Twilio
             client.messages.create({
-                body: `Reminder: ${record.name} was prescribed to take their dose of ${record.medicine}! at ${record_time}. Confirm on the PillPal website`,
+                body: `Reminder: ${record.name} was prescribed to take their dose of ${record.medicine} at ${record_time}. Please address!`,
                 from: '+15077085452',
                 to: '+61472909030'
             }).then(message => {
