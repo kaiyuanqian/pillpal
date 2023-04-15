@@ -16,7 +16,7 @@ N: Yeah, but they're unintelligible.
 
 _N opens unintelligible notes on screen_
 
-P: That's ok, I'll translate them for you. The first one is called Joe Biden. He needs 5mL of Donepezil once a day for his dementia.
+P: That's ok, I'll translate them for you. The first one is called Joe Biden. He needs 5mg of Donepezil once a day for his dementia.
 
 N: What time?
 
@@ -36,5 +36,32 @@ _N types details into PC_
 _End scene_
 
 ## Scene 2
-Nurse = N Patient = P
+Nurse = N Joe = J
 
+**Time is 7am**
+
+_N looks at laptop, sees reminder to give J his medicine._
+
+N: Gotta give Joe his meds.
+
+_N clicks on the reminder to minimise it. He then gets up and walks into adjacent room._
+
+N: Good morning Joe.
+
+_J is sleeping but snaps awake_
+
+J: Oh good evening!
+
+N: Here are your meds.
+
+_N gives the meds to Joe, who takes them_
+
+J: Thanks.
+
+_N turns away, camera follows._
+
+N: Oh also, make sure you - 
+
+_N and camera turn back to look at J. He is sleeping again._
+
+_End scene_
