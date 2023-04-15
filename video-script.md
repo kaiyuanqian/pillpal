@@ -77,3 +77,12 @@ _N is playing chess on his PC. He gets a notification on his phone. He looks._
 
 N: Oh shit!
 
+_N quickly get the meds and rushed into adjacent room_
+
+N: Here is your medication, sorry I'm late, we're quite busy at the moment.
+
+K: No worries.
+
+_K takes medicine_
+
+_End scene_
