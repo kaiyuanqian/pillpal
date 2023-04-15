@@ -1,3 +1,12 @@
+## Introduction
+PillPal is a web application designed to help nurses, age-care workers and other
+caretakers to keep track of when they need to administer medicine to their patients.
+We believe our concept could make a meaningful impact on the global healthcare industry
+as a whole. For instance, hospital nurses are subject to extreme work-loads and
+are often understaffed. We hope to alleviate some of their stress by remembering
+their drug duties for them, and sending a reminder in case they forget. Here is
+an example of how PillPal could work in a real-life scenario.
+
 ## Scene 1
 Nurse = N
 Pharmacologist = P
@@ -79,7 +88,8 @@ N: Oh shit!
 
 _N quickly get the meds and rushed into adjacent room_
 
-N: Here is your medication, sorry I'm late, we're quite busy at the moment.
+N: Here is your medication, sorry I'm late, we're really busy at the moment. I've
+   come straight from seeing 5 other patients.
 
 K: No worries.
 
