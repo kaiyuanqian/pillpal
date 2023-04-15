@@ -20,3 +20,13 @@ Javascript was utilised as the backend language of choice due to the fact it int
 
 --- 
 
+## Kaiyuan
+
+My involvement consisted of project planning, front-end design, writing, and directing the pitch video.
+
+Through PillPal, I gained valuable experience in the strategic designing of the front-end using html, CSS, and for the first time, Javascript. Some of my strategic design choices include the usage of a smart-casual looking rounded font, which gives off a comforting and non-confrontational vibe necessary to not increase user stress levels.
+
+I found it challenging to come up with a video idea that is both engaging and effiectively demonstrates PillPal's functionality and real-word use. I decided to consult with a friend, who is a current med-school student and thus familiar with hospital protocol and the current status quo of nurses. As such, I believe I was able to create a relatively accurate skit depicting our product's features and relevance within a significant part of the healthcare industry.
+
+---
+
